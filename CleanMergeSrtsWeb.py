@@ -14,11 +14,8 @@ def create_download_link(file_path, link_text):
     return href
 
 
-if input2: # Display file content as code
+if input2:
     files = st.session_state['files_input']
     new_name = st.session_state['file_name']
     name = clean_and_merge(files, name=new_name)
     st.download_button('Download', data=open(name).read(), file_name=name)
-
-    time.sleep(10)
-    os.remove(name)
