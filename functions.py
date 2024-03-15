@@ -1,19 +1,19 @@
 import pathlib
 import time
 
+
 def parse_file_name(string):
     first= string.split('und')
     name = first[0]
     second = first[1].split('date')[1].split('company')
     date = second[0]
     comp = second[1]
-    anyad = {
+    return {
         'Name': name.strip(),
         'Date': date.strip('_'),
         'Company': comp.strip()
     }
-    print(list(anyad))
-    return anyad
+
 
 def clean_and_merge(data_list, dest='', name=''):
     file_name = f'{name or time.strftime("%d-%m-%Y-%H-%M")}.txt'
